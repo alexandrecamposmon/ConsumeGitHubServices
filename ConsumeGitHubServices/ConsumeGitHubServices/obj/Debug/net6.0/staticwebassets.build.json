@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "GgwUxOHYiOvzW2GYWivDhJfSD74LnJfuid5I16CikKY=",
-  "Source": "ConsumeGitHubServices",
-  "BasePath": "_content/ConsumeGitHubServices",
+  "Hash": "7WaNhcdAOvLM7tiImieVWz5DxxPPMbpYZwlNhJyZNxc=",
+  "Source": "ConsumeGitHubServices.API",
+  "BasePath": "_content/ConsumeGitHubServices.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

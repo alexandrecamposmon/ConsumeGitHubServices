@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "ConsumeGitHubServices.Infrastructure/1.0.0": {
+        "dependencies": {
+          "ConsumeGitHubServices.ApplicationCore": "1.0.0"
+        },
+        "runtime": {
+          "ConsumeGitHubServices.Infrastructure.dll": {}
+        }
+      },
+      "ConsumeGitHubServices.ApplicationCore/1.0.0": {
+        "runtime": {
+          "ConsumeGitHubServices.ApplicationCore.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsumeGitHubServices.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ConsumeGitHubServices.ApplicationCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
