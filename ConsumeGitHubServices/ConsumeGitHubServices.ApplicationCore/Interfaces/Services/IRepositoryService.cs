@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConsumeGitHubServices.ApplicationCore.Models.Request;
+using ConsumeGitHubServices.ApplicationCore.Models.Response;
 
 namespace ConsumeGitHubServices.ApplicationCore.Interfaces.Services
 {
     public interface IRepositoryService
     {
+        public RepositoryResponse RepositoryCreate(RepositoryRequest request);
+        public Task<IEnumerable<RepositoryResponse>> RepositoryListAll(string User);
     }
 }

@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConsumeGitHubServices.ApplicationCore.Models.Request;
+using ConsumeGitHubServices.ApplicationCore.Models.Response;
 
 namespace ConsumeGitHubServices.ApplicationCore.Interfaces.Repository
 {
     public interface IWebhookRepository
     {
+        public WebhookResponse WebhookCreate(WebhookRequest request, string User, string Repo);
+        public WebhookResponse WebhookUpdate(WebhookRequest request, string User, string Repo, int id);
+        public WebhookResponse WebhookGetById(string User, string Repo, int id);
+        public IEnumerable<WebhookResponse> WebhookListByRepository(string User, string Repo);
     }
 }

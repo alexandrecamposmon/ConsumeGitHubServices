@@ -1,4 +1,5 @@
 using ConsumeGitHubServices.ApplicationCore.Interfaces.Services;
+using ConsumeGitHubServices.ApplicationCore.Models.Request;
 using ConsumeGitHubServices.ApplicationCore.Models.Response;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,10 +15,36 @@ namespace ConsumeGitHubServices.Controllers
             this.webhookService = webhookService;
         }
 
-        [HttpGet()]
-        public IEnumerable<WebhookResponse> GetAll()
+        [HttpGet("WebhookGetById/{User}/{Repo}/{id}")]
+        public WebhookResponse WebhookGetById(string User, string Repo, int id)
         {
-            return null;
+            var result = this.webhookService.WebhookGetById(User, Repo, id);
+
+            return result;
+        }
+
+        [HttpGet("WebhookListByRepository/{User}/{Repo}")]
+        public IEnumerable<WebhookResponse> WebhookListByRepository(string User, string Repo)
+        {
+            var result = this.webhookService.WebhookListByRepository(User, Repo);
+
+            return result;
+        }
+
+        [HttpPost("WebhookCreate/{User}/{Repo}")]
+        public WebhookResponse WebhookCreate([FromBody]WebhookRequest request, [FromQuery] string User, string Repo)
+        {
+            var result = webhookService.WebhookCreate(request, User, Repo);
+
+            return result;
+        }
+
+        [HttpPut("WebhookUpdate/{User}/{Repo}/{id}")]
+        public WebhookResponse WebhookUpdate([FromBody]WebhookRequest request, [FromQuery] string User, string Repo, int id)
+        {
+            var result = webhookService.WebhookUpdate(request, User, Repo, id);
+
+            return result;
         }
     }
 }

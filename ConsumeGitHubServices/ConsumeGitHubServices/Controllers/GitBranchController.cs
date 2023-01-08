@@ -16,10 +16,12 @@ namespace ConsumeGitHubServices.Controllers
             this.branchService = branchService;
         }
 
-        [HttpGet()]
-        public IEnumerable<BranchResponse> GetAll()
+        [HttpGet("BranchsListByRepository/{User}/{Repo}")]
+        public IEnumerable<BranchResponse> BranchsListByRepository(string User, string Repo)
         {
-            return null;
+            var result = this.branchService.BranchsListByRepository(User, Repo);
+
+            return result;
         }
     }
 }
