@@ -1,32 +1,69 @@
 ﻿using ConsumeGitHubServices.ApplicationCore.Interfaces.Repository;
 using ConsumeGitHubServices.ApplicationCore.Models.Request;
 using ConsumeGitHubServices.ApplicationCore.Models.Response;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace ConsumeGitHubServices.Infrastructure.Repository
 {
     public class RepositoryRepository : IRepositoryRepository
     {
-        public RepositoryResponse RepositoryCreate(RepositoryRequest request)
+        private readonly IConfiguration _configuration;
+        public RepositoryRepository(IConfiguration configuration)
         {
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+        }
+        public async Task <RepositoryResponse> RepositoryCreate(RepositoryRequest request)
+        {
+            var token = _configuration["GitServices:Token"];
+            var baseUrl = _configuration["GitServices:Url"];
+            var myservice = _configuration["GitServices:Services:RepositoryCreate"];
 
-            throw new NotImplementedException();
+            var urlcompleta = $"{baseUrl}{myservice}";
+
+            var resultjson = "";
+
+            using (var cliente = new HttpClient())
+            {
+                var req = JsonConvert.SerializeObject(request);
+                var content = new StringContent(req, Encoding.UTF8, "application/json");
+                cliente.DefaultRequestHeaders.Add("User-Agent", "ConsumeGitHubServicesApplication");
+                cliente.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+                var response = await cliente.PostAsync(urlcompleta, content);
+            }
+            var result = JsonConvert.DeserializeObject<RepositoryResponse>(resultjson);
+            return result;
         }
 
         public async Task<IEnumerable<RepositoryResponse>> RepositoryListAll(string User)
         {
             try
             {
+                var token = _configuration["GitServices:Token"];
+                var user = _configuration["GitServices:User"];
+                var baseUrl = _configuration["GitServices:Url"];
+                var myservice = _configuration["GitServices:Services:RepositoryListAll"];
+                if (User != user)
+                {
+                    throw new Exception($"Este exemplo somente aceita o usuário {user}");
+                }
+
+                myservice = myservice.Replace("{USER}", user);
+
+                var urlcompleta = $"{baseUrl}{myservice}";
+
+                var resultjson = "";
+
                 using (var cliente = new HttpClient())
                 {
                     cliente.DefaultRequestHeaders.Add("User-Agent", "ConsumeGitHubServicesApplication");
-                    var response = await cliente.GetAsync("https://api.github.com/users/alexandrecamposmon/repos");
-
-                    var result = await response.Content.ReadAsStringAsync();
-                    var teste = result;
+                    cliente.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+                    var response = await cliente.GetAsync(urlcompleta);
+                    resultjson = await response.Content.ReadAsStringAsync();
                 }
-
-                return null;
+                var result = JsonConvert.DeserializeObject<IEnumerable<RepositoryResponse>> (resultjson);
+                return result;
             }
             catch (Exception)
             {

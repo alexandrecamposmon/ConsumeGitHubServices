@@ -5,7 +5,7 @@ namespace ConsumeGitHubServices.ApplicationCore.Interfaces.Services
 {
     public interface IRepositoryService
     {
-        public RepositoryResponse RepositoryCreate(RepositoryRequest request);
+        public Task <RepositoryResponse> RepositoryCreate(RepositoryRequest request);
         public Task<IEnumerable<RepositoryResponse>> RepositoryListAll(string User);
     }
 }

@@ -15,35 +15,35 @@ namespace ConsumeGitHubServices.Controllers
             this.webhookService = webhookService;
         }
 
-        [HttpGet("WebhookGetById/{User}/{Repo}/{id}")]
-        public WebhookResponse WebhookGetById(string User, string Repo, int id)
+        [HttpGet("WebhookGetById/{Repo}/{id}")]
+        public Task <WebhookResponse> WebhookGetById(string Repo, int id)
         {
+            var User = "alexandrecamposmon"; //o usuário será hardcoded para esse exemplo.
             var result = this.webhookService.WebhookGetById(User, Repo, id);
-
             return result;
         }
 
-        [HttpGet("WebhookListByRepository/{User}/{Repo}")]
-        public IEnumerable<WebhookResponse> WebhookListByRepository(string User, string Repo)
+        [HttpGet("WebhookListByRepository/{Repo}")]
+        public IEnumerable<WebhookResponse> WebhookListByRepository(string Repo)
         {
+            var User = "alexandrecamposmon"; //o usuário será hardcoded para esse exemplo.
             var result = this.webhookService.WebhookListByRepository(User, Repo);
-
             return result;
         }
 
-        [HttpPost("WebhookCreate/{User}/{Repo}")]
-        public WebhookResponse WebhookCreate([FromBody]WebhookRequest request, [FromQuery] string User, string Repo)
+        [HttpPost("WebhookCreate/{Repo}")]
+        public Task<WebhookResponse> WebhookCreate([FromBody] WebhookRequest request, string Repo)
         {
+            var User = "alexandrecamposmon"; //o usuário será hardcoded para esse exemplo.
             var result = webhookService.WebhookCreate(request, User, Repo);
-
             return result;
         }
 
-        [HttpPut("WebhookUpdate/{User}/{Repo}/{id}")]
-        public WebhookResponse WebhookUpdate([FromBody]WebhookRequest request, [FromQuery] string User, string Repo, int id)
+        [HttpPut("WebhookUpdate/{Repo}/{id}")]
+        public Task<WebhookResponse> WebhookUpdate([FromBody] WebhookRequest request, string Repo, int id)
         {
+            var User = "alexandrecamposmon"; //o usuário será hardcoded para esse exemplo.
             var result = webhookService.WebhookUpdate(request, User, Repo, id);
-
             return result;
         }
     }

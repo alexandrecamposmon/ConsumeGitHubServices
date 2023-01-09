@@ -3,8 +3,11 @@ using ConsumeGitHubServices.ApplicationCore.Interfaces.Services;
 using ConsumeGitHubServices.ApplicationCore.Services;
 using ConsumeGitHubServices.Infrastructure.Repository;
 
-var builder = WebApplication.CreateBuilder(args);
+IConfiguration configuration = new ConfigurationBuilder()
+                            .AddJsonFile("appsettings.json")
+                            .Build();
 
+var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -22,6 +25,8 @@ builder.Services.AddScoped<IBranchService, BranchService>();
 builder.Services.AddScoped<IRepositoryService, RepositoryService>();
 builder.Services.AddScoped<IWebhookService, WebhookService>();
 #endregion
+
+
 
 var app = builder.Build();
 

@@ -16,17 +16,19 @@ namespace ConsumeGitHubServices.Controllers
             this.repositoryService = repositoryService;
         }
 
-        [HttpGet("RepositoryListAll/{User}")]
-        public async Task<IEnumerable<RepositoryResponse>> RepositoryListAll(string User)
+        [HttpGet("RepositoryListAll")]
+        public async Task<IEnumerable<RepositoryResponse>> RepositoryListAll()
         {
+            var User = "alexandrecamposmon"; //o usuário será hardcoded para esse exemplo.
             var result = await this.repositoryService.RepositoryListAll(User);
 
             return result;
         }
 
         [HttpPost("RepositoryCreate")]
-        public RepositoryResponse RepositoryCreate(RepositoryRequest request)
+        public Task <RepositoryResponse> RepositoryCreate(RepositoryRequest request)
         {
+
             var result = this.repositoryService.RepositoryCreate(request);
 
             return result;

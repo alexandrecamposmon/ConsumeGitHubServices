@@ -16,9 +16,10 @@ namespace ConsumeGitHubServices.Controllers
             this.branchService = branchService;
         }
 
-        [HttpGet("BranchsListByRepository/{User}/{Repo}")]
-        public IEnumerable<BranchResponse> BranchsListByRepository(string User, string Repo)
+        [HttpGet("BranchsListByRepository/{Repo}")]
+        public Task <IEnumerable<BranchResponse>> BranchsListByRepository(string Repo)
         {
+            var User = "alexandrecamposmon"; //o usuário será hardcoded para esse exemplo.
             var result = this.branchService.BranchsListByRepository(User, Repo);
 
             return result;

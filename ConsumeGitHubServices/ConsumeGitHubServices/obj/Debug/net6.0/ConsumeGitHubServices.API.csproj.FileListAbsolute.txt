@@ -30,3 +30,5 @@ C:\Projetos\ConsumeGitHubServices\ConsumeGitHubServices\ConsumeGitHubServices\ob
 C:\Projetos\ConsumeGitHubServices\ConsumeGitHubServices\ConsumeGitHubServices\obj\Debug\net6.0\ConsumeGitHubServices.API.genruntimeconfig.cache
 C:\Projetos\ConsumeGitHubServices\ConsumeGitHubServices\ConsumeGitHubServices\obj\Debug\net6.0\ref\ConsumeGitHubServices.API.dll
 C:\Projetos\ConsumeGitHubServices\ConsumeGitHubServices\ConsumeGitHubServices\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Projetos\ConsumeGitHubServices\ConsumeGitHubServices\ConsumeGitHubServices\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Projetos\ConsumeGitHubServices\ConsumeGitHubServices\ConsumeGitHubServices\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll

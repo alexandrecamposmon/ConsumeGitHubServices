@@ -13,7 +13,7 @@ namespace ConsumeGitHubServices.ApplicationCore.Services
         {
             this.repositoryRepository = repositoryRepository;
         }
-        public RepositoryResponse RepositoryCreate(RepositoryRequest request)
+        public Task <RepositoryResponse> RepositoryCreate(RepositoryRequest request)
         {
             return repositoryRepository.RepositoryCreate(request);
         }

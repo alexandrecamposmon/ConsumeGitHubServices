@@ -11,7 +11,7 @@ namespace ConsumeGitHubServices.ApplicationCore.Services
         {
             this.branchRepository = branchRepository;
         }
-        public IEnumerable<BranchResponse> BranchsListByRepository(string User, string Repo)
+        public Task <IEnumerable<BranchResponse>> BranchsListByRepository(string User, string Repo)
         {
             return this.branchRepository.BranchsListByRepository(User, Repo);
         }

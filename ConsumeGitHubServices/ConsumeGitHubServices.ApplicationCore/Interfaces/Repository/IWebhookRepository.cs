@@ -5,9 +5,9 @@ namespace ConsumeGitHubServices.ApplicationCore.Interfaces.Repository
 {
     public interface IWebhookRepository
     {
-        public WebhookResponse WebhookCreate(WebhookRequest request, string User, string Repo);
-        public WebhookResponse WebhookUpdate(WebhookRequest request, string User, string Repo, int id);
-        public WebhookResponse WebhookGetById(string User, string Repo, int id);
-        public IEnumerable<WebhookResponse> WebhookListByRepository(string User, string Repo);
+        Task<WebhookResponse> WebhookCreate(WebhookRequest request, string User, string Repo);
+        Task<WebhookResponse> WebhookUpdate(WebhookRequest request, string User, string Repo, int id);
+        Task <WebhookResponse> WebhookGetById(string User, string Repo, int id);
+        Task<IEnumerable<WebhookResponse>> WebhookListByRepository(string User, string Repo);
     }
 }

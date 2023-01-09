@@ -1,38 +1,73 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+
 
 namespace ConsumeGitHubServices.ApplicationCore.Models.Response
 {
     public class WebhookResponse
     {
+        [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
         public string Type { get; set; }
-        public int Id { get; set; }
+
+        [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
+        public long? Id { get; set; }
+
+        [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
-        public bool Active { get; set; }
-        public List<string> Events { get; set; }
+
+        [JsonProperty("active", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? Active { get; set; }
+
+        [JsonProperty("events", NullValueHandling = NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> Events { get; set; }
+
+        [JsonProperty("config", NullValueHandling = NullValueHandling.Ignore)]
         public Config Config { get; set; }
-        public DateTime UpdatedAt { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public string Url { get; set; }
-        public string TestUrl { get; set; }
-        public string PingUrl { get; set; }
-        public string DeliveriesUrl { get; set; }
+
+        [JsonProperty("updated_at", NullValueHandling = NullValueHandling.Ignore)]
+        public DateTimeOffset? UpdatedAt { get; set; }
+
+        [JsonProperty("created_at", NullValueHandling = NullValueHandling.Ignore)]
+        public DateTimeOffset? CreatedAt { get; set; }
+
+        [JsonProperty("url", NullValueHandling = NullValueHandling.Ignore)]
+        public Uri Url { get; set; }
+
+        [JsonProperty("test_url", NullValueHandling = NullValueHandling.Ignore)]
+        public Uri TestUrl { get; set; }
+
+        [JsonProperty("ping_url", NullValueHandling = NullValueHandling.Ignore)]
+        public Uri PingUrl { get; set; }
+
+        [JsonProperty("deliveries_url", NullValueHandling = NullValueHandling.Ignore)]
+        public Uri DeliveriesUrl { get; set; }
+
+        [JsonProperty("last_response", NullValueHandling = NullValueHandling.Ignore)]
         public LastResponse LastResponse { get; set; }
     }
+
     public class Config
     {
+        [JsonProperty("content_type", NullValueHandling = NullValueHandling.Ignore)]
         public string ContentType { get; set; }
-        public string InsecureSsl { get; set; }
-        public string Url { get; set; }
+
+        [JsonProperty("insecure_ssl", NullValueHandling = NullValueHandling.Ignore)]
+        public long? InsecureSsl { get; set; }
+
+        [JsonProperty("url", NullValueHandling = NullValueHandling.Ignore)]
+        public Uri Url { get; set; }
     }
 
     public class LastResponse
     {
-        public int Code { get; set; }
+        [JsonProperty("code", NullValueHandling = NullValueHandling.Ignore)]
+        public long? Code { get; set; }
+
+        [JsonProperty("status", NullValueHandling = NullValueHandling.Ignore)]
         public string Status { get; set; }
+
+        [JsonProperty("message", NullValueHandling = NullValueHandling.Ignore)]
         public string Message { get; set; }
     }
+
+
 }

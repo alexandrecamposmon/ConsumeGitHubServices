@@ -4,6 +4,6 @@ namespace ConsumeGitHubServices.ApplicationCore.Interfaces.Repository
 {
     public interface IBranchRepository
     {
-        public IEnumerable<BranchResponse> BranchsListByRepository(string User, string Repo);
+        public Task <IEnumerable<BranchResponse>> BranchsListByRepository(string User, string Repo);
     }
 }

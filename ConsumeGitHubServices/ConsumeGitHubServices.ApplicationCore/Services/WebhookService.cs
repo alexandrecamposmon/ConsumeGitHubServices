@@ -12,22 +12,22 @@ namespace ConsumeGitHubServices.ApplicationCore.Services
         {
             this.webhookRepository = webhookRepository;
         }
-        public WebhookResponse WebhookCreate(WebhookRequest request, string User, string Repo)
+        public Task<WebhookResponse> WebhookCreate(WebhookRequest request, string User, string Repo)
         {
             return this.webhookRepository.WebhookCreate(request, User, Repo);
         }
 
-        public WebhookResponse WebhookGetById(string User, string Repo, int id)
+        public Task <WebhookResponse> WebhookGetById(string User, string Repo, int id)
         {
             return this.webhookRepository.WebhookGetById(User, Repo, id);
         }
 
         public IEnumerable<WebhookResponse> WebhookListByRepository(string User, string Repo)
         {
-            return this.webhookRepository.WebhookListByRepository(User, Repo);
+            return this.webhookRepository.WebhookListByRepository(User, Repo).Result;
         }
 
-        public WebhookResponse WebhookUpdate(WebhookRequest request, string User, string Repo, int id)
+        public Task<WebhookResponse> WebhookUpdate(WebhookRequest request, string User, string Repo, int id)
         {
             return this.webhookRepository.WebhookUpdate(request, User, Repo, id);
         }
