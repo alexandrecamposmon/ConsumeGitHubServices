@@ -16,7 +16,11 @@ namespace ConsumeGitHubServices.Infrastructure.Repository
         }
         public async Task <RepositoryResponse> RepositoryCreate(RepositoryRequest request)
         {
-            var token = _configuration["GitServices:Token"];
+            var TokenPart1 = _configuration["GitServices:TokenPart1"];
+            var TokenPart2 = _configuration["GitServices:TokenPart2"];
+            var TokenPart3 = _configuration["GitServices:TokenPart3"];
+            var TokenPart4 = _configuration["GitServices:TokenPart4"];
+            var token = TokenPart1 + TokenPart2 + TokenPart3 + TokenPart4;
             var baseUrl = _configuration["GitServices:Url"];
             var myservice = _configuration["GitServices:Services:RepositoryCreate"];
 
@@ -40,7 +44,11 @@ namespace ConsumeGitHubServices.Infrastructure.Repository
         {
             try
             {
-                var token = _configuration["GitServices:Token"];
+                var TokenPart1 = _configuration["GitServices:TokenPart1"];
+                var TokenPart2 = _configuration["GitServices:TokenPart2"];
+                var TokenPart3 = _configuration["GitServices:TokenPart3"];
+                var TokenPart4 = _configuration["GitServices:TokenPart4"];
+                var token = TokenPart1 + TokenPart2 + TokenPart3 + TokenPart4;
                 var user = _configuration["GitServices:User"];
                 var baseUrl = _configuration["GitServices:Url"];
                 var myservice = _configuration["GitServices:Services:RepositoryListAll"];
