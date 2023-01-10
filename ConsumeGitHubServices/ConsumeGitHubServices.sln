@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsumeGitHubServices.Appli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsumeGitHubServices.Infrastructure", "ConsumeGitHubServices.Infrastructure\ConsumeGitHubServices.Infrastructure.csproj", "{F6370283-AD6A-4C8B-B4AC-A5A8F9C687C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsumeGitHubServices.Test", "ConsumeGitHubServices.Test\ConsumeGitHubServices.Test.csproj", "{54A79F63-C3FC-4423-A1B9-C57D8602BAC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsumeGitHubServices.Tests", "ConsumeGitHubServices.Tests\ConsumeGitHubServices.Tests.csproj", "{7295AE01-44E0-4A00-B631-7623C76DEF3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{F6370283-AD6A-4C8B-B4AC-A5A8F9C687C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6370283-AD6A-4C8B-B4AC-A5A8F9C687C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6370283-AD6A-4C8B-B4AC-A5A8F9C687C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{54A79F63-C3FC-4423-A1B9-C57D8602BAC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{54A79F63-C3FC-4423-A1B9-C57D8602BAC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{54A79F63-C3FC-4423-A1B9-C57D8602BAC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{54A79F63-C3FC-4423-A1B9-C57D8602BAC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7295AE01-44E0-4A00-B631-7623C76DEF3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7295AE01-44E0-4A00-B631-7623C76DEF3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7295AE01-44E0-4A00-B631-7623C76DEF3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7295AE01-44E0-4A00-B631-7623C76DEF3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

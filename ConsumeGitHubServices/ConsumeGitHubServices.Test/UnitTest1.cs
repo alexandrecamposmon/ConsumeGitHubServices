@@ -1,3 +1,5 @@
+using ConsumeGitHubServices.Infrastructure.Repository;
+
 namespace ConsumeGitHubServices.Test
 {
     public class Tests
@@ -10,6 +12,7 @@ namespace ConsumeGitHubServices.Test
         [Test]
         public void Test1()
         {
+            var repo = new BranchRepository(I);
             Assert.Pass();
         }
     }
